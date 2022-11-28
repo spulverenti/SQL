@@ -1,0 +1,31 @@
+--create a store database 
+CREATE TABLE cookies (id integer primary key, name text, rating integer, price integer, flavor integer);
+
+INSERT INTO cookies VALUES (1, "chocolate chip", 1, 5.00, "chocolate chip");
+INSERT INTO cookies VALUES (2, "sugar cookie", 2, 5.00, "sugar");
+INSERT INTO cookies VALUES (3, "gingerbread", 3, 6.00, "ginger");
+INSERT INTO cookies VALUES (4, "cannoli", 1, 7.00, "cannoli");
+INSERT INTO cookies VALUES (5, "butter", 4, 6.00, "butter");
+INSERT INTO cookies VALUES (6, "italian rainbow", 1, 8.00, "italian rainbow");
+INSERT INTO cookies VALUES (7, "Peanut Butter Blossom", 3, 7.00, "Peanute Butter");
+INSERT INTO cookies VALUES (8, "Raspberry", 5, 6.00, "raspberry");
+INSERT INTO cookies VALUES (9, "Blueberry", 5, 5.00, "blueberry");
+INSERT INTO cookies VALUES (10, "Strawberry Puff", 5, 6.00, "Strawberry");
+INSERT INTO cookies VALUES (11, "Oatmeal Raisin", 5, 5.00, "oatmeal raisin");
+INSERT INTO cookies VALUES (12, "Oatmeal Chocolate Chip", 3, 5.00, "Oatmeal Chocolate Chip");
+INSERT INTO cookies VALUES (13, "Dark Chocolate Chip", 4, 6.00, "Dark Chocolate Chip");
+INSERT INTO cookies VALUES (14, "Creme Mint", 4, 6.00, "Creme Mint");
+INSERT INTO cookies VALUES (15, "Creamsicle", 5, 5.00, "Creamsicle");
+
+--display the database ordered by price
+SELECT *FROM cookies ORDER BY price;
+
+--what is the avg price of items in the chocolate chip section?
+SELECT AVG(price) "avg chocolate chip price" FROM STORE
+where section = 'chocolate chip';
+
+--what items are rated in the top 5?
+SELECT item, price, rating
+FROM cookies 
+order by rating desc
+limit 5;
